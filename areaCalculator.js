@@ -25,7 +25,11 @@ function calculateRectangleArea(){
     const lengthField=document.getElementById('rectangle-length');
     const lengthInputValueString=lengthField.value;
     const lengthInputValue=parseFloat(lengthInputValueString);
-
+  
+    if(isNaN(weightInputValue)|| isNaN(lengthInputValue)){
+        alert('Please insert a number');
+        return;
+    }
     const area=weightInputValue*lengthInputValue;
 
     const areaField=document.getElementById('rectangle-area');
@@ -45,8 +49,8 @@ function calculateEllipseArea(){
     const majorRadius= getInputValue('ellipse-base');
     const minorRadius=getInputValue('ellipse-height');
     const area= 3.14 * majorRadius * minorRadius;
-    console.log(area);
-    setTextFieldText('ellipse-area',area);
+   const areaTwoDecimal=area.toFixed(2);
+    setTextFieldText('ellipse-area',areaTwoDecimal);
 
 
 }
