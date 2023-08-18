@@ -14,6 +14,9 @@ function calculateTriangleArea(){
     areaField.innerText=area;
     console.log(areaField);
 
+    //Add to entry
+    addToCalculationEntry('Triangle',area);
+
    
 
 }
@@ -63,4 +66,15 @@ function getInputValue(fieldId){
 function setTextFieldText(elementId,area){
    const element=document.getElementById(elementId);
    element.innerText=area;  
+}
+
+//add to calculation entry
+function addToCalculationEntry(areaType,area){
+const CalculationEntry= document.getElementById('calculation-entry');
+
+const count =CalculationEntry.childElementCount;
+const p=document.createElement('p');
+p.classList.add('my-4');
+p.innerHTML=`${count+1}. ${areaType} ${area} cm <sup>2</sup> <button class="btn btn-success text-white ">Covert</button>`;
+CalculationEntry.appendChild(p);
 }
